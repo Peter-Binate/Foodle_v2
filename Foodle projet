@@ -1,0 +1,35 @@
+Projet 1 : Gestion basique de l’inventaire des ingrédients (Débutant)
+
+Ce projet te permettra de te familiariser avec les bases de Django en développant les fonctionnalités les plus simples de ton application de cuisine.
+Fonctionnalités à inclure :
+
+    Créer, Ajouter, Modifier, Supprimer un ingrédient dans l’inventaire.
+        Modèle d’ingrédient : nom, image, prix, magasin.
+        Formulaire pour l’ajout/modification des ingrédients.
+        Affichage de la liste des ingrédients dans l’inventaire.
+    CRUD des ingrédients déjà présents :
+        Interface de gestion (admin Django) pour voir tous les ingrédients.
+        Validation sur l’unicité du nom d’ingrédient.
+
+Objectifs pédagogiques :
+
+    Apprentissage des bases de Django : modèles, vues, templates, URLs.
+    Manipulation des formulaires Django pour la création et l’édition des ingrédients.
+    
+    
+
+Projet 2 : Gestion avancée des prix et des magasins (Débutant)
+
+Dans ce projet, tu ajoutes des fonctionnalités un peu plus complexes, toujours en restant au niveau débutant, tout en introduisant des calculs et des relations simples.
+Fonctionnalités à inclure :
+    Calcule des prix de tous les ingrédients (manquants) à acheter :
+        Vue permettant de lister les ingrédients qui manquent.
+        Calcul automatique du total des prix pour les ingrédients manquants.
+    Proposer les magasins moins chers :
+        Comparer les prix des ingrédients dans les différents magasins et afficher le magasin le moins cher.
+
+Objectifs pédagogiques :
+
+    Apprendre à faire des calculs dans les vues Django.
+    Manipuler les relations entre modèles (magasin, ingrédient).
+    Filtrage et tri des données en fonction de critères (prix, magasin).

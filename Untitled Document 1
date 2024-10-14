@@ -1,0 +1,47 @@
+2. Modèle Recette
+
+Description :
+Le modèle Recette représente un plat ou une préparation spécifique dans l'application. Chaque recette est composée de plusieurs ingrédients et inclut des informations détaillées sur la façon de préparer le plat, ainsi que son coût total (basé sur les prix des ingrédients).
+
+Attributs :
+
+    Titre (title) : Le nom ou titre de la recette (ex: "Salade de tomates").
+    Description (description) : Un texte qui décrit la recette ou le plat (ex: "Une salade de tomates fraîches avec du basilic").
+    Ingrédients (ingredients) : Une liste des ingrédients nécessaires pour préparer la recette (relation Many-to-Many avec le modèle Ingrédient).
+    Instructions (instructions) : Les étapes à suivre pour préparer la recette (ex: "Couper les tomates, ajouter du sel, mélanger").
+    Catégorie (category) : La catégorie de la recette (ex: Apéro, Entrée, Plat, Dessert).
+    Temps de préparation (prep_time) : Temps nécessaire pour préparer les ingrédients avant la cuisson (en minutes).
+    Temps de cuisson (cook_time) : Temps de cuisson (en minutes).
+    Coût total (total_cost) : Le coût total de la recette, calculé en fonction des prix des ingrédients associés à cette recette.
+
+3. Modèle Recette-Ingrédient (Table intermédiaire)
+
+Description :
+Ce modèle intermédiaire, souvent appelé table de jonction, gère la relation Many-to-Many entre les Recettes et les Ingrédients. Il permet de spécifier la quantité et l'unité de mesure de chaque ingrédient pour une recette donnée.
+
+Attributs :
+
+    Recette (recipe) : Référence à la recette à laquelle l'ingrédient est associé.
+    Ingrédient (ingredient) : Référence à l'ingrédient utilisé dans la recette.
+    Quantité (quantity) : Quantité nécessaire de cet ingrédient pour la recette (ex: 200).
+    Unité de mesure (unit) : L'unité dans laquelle l'ingrédient est mesuré (ex: grammes, litres, cuillères à soupe, etc.).
+
+Résumé des relations entre les modèles :
+
+    Recette et Ingrédient sont liés par une relation Many-to-Many (plusieurs ingrédients peuvent appartenir à plusieurs recettes). Cette relation est gérée par le modèle intermédiaire Recette-Ingrédient, qui enregistre la quantité et l'unité de chaque ingrédient pour chaque recette.
+    Chaque Recette possède une liste d'ingrédients (relation Many-to-Many), et chaque Ingrédient peut être utilisé dans plusieurs recettes.
+    Le coût total d'une Recette est calculé en fonction des prix des Ingrédients qui la composent.
+
+Cas d'utilisation :
+
+    Ajouter une recette : Lorsque l'utilisateur ajoute une nouvelle recette, il choisit plusieurs ingrédients existants dans l'inventaire et spécifie la quantité et l'unité de mesure pour chacun.
+    Calculer le prix d'une recette : En combinant les prix des ingrédients et les quantités nécessaires pour chaque recette, on peut calculer le coût total d'une recette.
+    Mise à jour de l'inventaire : Une fois qu'une recette est préparée, les quantités d'ingrédients utilisés peuvent être soustraites de l'inventaire.
+
+Schéma de la relation :
+
+    Recette ↔️ Recette-Ingrédient ↔️ Ingrédient
+        Une recette a plusieurs ingrédients, et chaque ingrédient peut être utilisé dans plusieurs recettes.
+        La table intermédiaire (Recette-Ingrédient) stocke la quantité et l'unité pour chaque ingrédient dans chaque recette.
+
+En structurant les modèles de cette manière, tu pourras facilement gérer les recettes, les ingrédients, et leurs relations dans ton application de cuisine, tout en assurant une cohérence dans les calculs de prix et la gestion de l'inventaire.
